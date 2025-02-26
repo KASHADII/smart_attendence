@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Attendance</title>
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
     <h1>Smart Attendance System</h1>
+    
     <button onclick="generateQRCode()">Generate QR Code</button>
     <div id="qrcode"></div>
 
     <button id="startVideo">Start Video</button>
-    <video id="video" width="320" height="240" autoplay></video>
-    <canvas id="canvas"></canvas>
-    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  </body>
+    <div class="video-container">
+        <video id="video" width="320" height="240" autoplay></video>
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
 </html>
