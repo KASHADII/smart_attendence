@@ -16,19 +16,25 @@ async function startFaceDetection() {
     const video = document.getElementById("video");
     const canvas = document.getElementById("canvas");
 
-    
+    // Get user camera
     navigator.mediaDevices.getUserMedia({ video: {} }).then((stream) => {
         video.srcObject = stream;
     });
 
     video.addEventListener("play", async () => {
-        const displaySize = { width: video.width, height: video.height };
+        
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const displaySize = { width: video.videoWidth, height: video.videoHeight };
         faceapi.matchDimensions(canvas, displaySize);
 
         setInterval(async () => {
             const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions());
-            canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-            faceapi.draw.drawDetections(canvas, detections);
+            const resizedDetections = faceapi.resizeResults(detections, displaySize);
+
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            faceapi.draw.drawDetections(canvas, resizedDetections);
         }, 100);
     });
 }
