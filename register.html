@@ -18,6 +18,12 @@
             <input type="password" id="password" placeholder="Password" required>
             <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
             
+            <!-- ✅ Role Selection Dropdown -->
+            <select id="role" required>
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+            </select>
+
             <button type="button" onclick="captureFace()">Capture Face Data</button>
             <video id="video" width="320" height="240" autoplay></video>
             <canvas id="canvas" style="display: none;"></canvas>
