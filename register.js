@@ -32,7 +32,7 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
         return;
     }
 
-    // ✅ Store user details with role, face data, and QR code
+  
     const newUser = { name, email, password, role, faceData, qrCode };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
@@ -41,7 +41,7 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
     window.location.href = "login.html";
 });
 
-/* ✅ Face Recognition & Data Storage */
+
 async function captureFace() {
     const video = document.getElementById("video");
     const canvas = document.getElementById("canvas");
@@ -73,20 +73,20 @@ async function captureFace() {
                 return;
             }
 
-            // ✅ Store face data for this user
+           
             localStorage.setItem("faceData", JSON.stringify(detections.descriptor));
             alert("✅ Face data captured successfully!");
 
-            // ✅ Stop Camera Stream After Successful Capture
+            
             let tracks = video.srcObject.getTracks();
-            tracks.forEach(track => track.stop()); // Stop all video tracks
+            tracks.forEach(track => track.stop()); 
             video.srcObject = null;
-            video.style.display = "none"; // Hide video element
+            video.style.display = "none"; 
         }, 2000);
-    }, { once: true }); // ✅ Ensures event runs only ONCE
+    }, { once: true }); 
 }
 
-/* ✅ Generate QR Code */
+
 function generateQRCode() {
     const email = document.getElementById("email").value;
     if (!email) {

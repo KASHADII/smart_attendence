@@ -1,4 +1,4 @@
-/* Reset Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +28,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Input Fields */
+
 input, select {
     width: 100%;
     padding: 10px;
@@ -37,7 +37,7 @@ input, select {
     border-radius: 5px;
 }
 
-/* Button */
+
 button {
     width: 100%;
     padding: 12px;
@@ -54,7 +54,7 @@ button:hover {
     background: #0056b3;
 }
 
-/* Link */
+
 p a {
     color: #007bff;
     text-decoration: none;

@@ -1,4 +1,4 @@
-/* Reset Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,11 +8,11 @@
 
 html, body {
     height: auto;
-    overflow-y: auto; /* Enable vertical scrolling */
-    scroll-behavior: smooth; /* Smooth scrolling */
+    overflow-y: auto; 
+    scroll-behavior: smooth; 
 }
 
-/* Center the container */
+
 body {
     background-color: #f8f9fa;
     color: #333;
@@ -23,7 +23,7 @@ body {
     min-height: 100vh;
 }
 
-/* Registration Form Container */
+
 .container {
     background: white;
     padding: 25px;
@@ -33,16 +33,16 @@ body {
     margin-top:20px ;
 }
 
-/* Heading */
+
 
 h2 {
     font-size: 1.8rem;
-    color: #007bff; /* Blue color for visibility */
+    color: #007bff; 
     margin-bottom: 15px;
     text-align: center;
     font-weight: bold;
 }
-/* Input Fields & Role Dropdown */
+
 input, select {
     width: 100%;
     padding: 12px;
@@ -52,13 +52,12 @@ input, select {
     font-size: 1rem;
 }
 
-/* Role Dropdown */
 select {
     background: #fff;
     cursor: pointer;
 }
 
-/* Buttons */
+
 button {
     width: 100%;
     padding: 12px;
@@ -76,12 +75,12 @@ button:hover {
     background: #0056b3;
 }
 
-/* QR Code Section */
+
 #qrcode {
     margin-top: 10px;
 }
 
-/* Video Container */
+
 video {
     margin-top: 10px;
     border-radius: 8px;
@@ -91,7 +90,7 @@ video {
     margin-right: auto;
 }
 
-/* Footer Text */
+
 p {
     margin-top: 15px;
     font-size: 0.9rem;

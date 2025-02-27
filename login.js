@@ -16,7 +16,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
     alert("🎉 Login successful!");
 
-    // ✅ Redirect based on role
+    
     if (user.role === "student") {
         window.location.href = "dashboard.html";
     } else if (user.role === "admin") {
