@@ -20,26 +20,31 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
         return;
     }
 
-    const faceData = localStorage.getItem("faceData");
-    if (!faceData) {
-        alert("⚠️ Please capture your face data before registering.");
-        return;
-    }
+    // ✅ Extract domain from email
+    const domain = email.split("@")[1];
 
-    const qrCode = localStorage.getItem("qrCode");
-    if (!qrCode) {
-        alert("⚠️ Please generate a QR code before registering.");
-        return;
-    }
+    // ✅ Auto-assign classes based on domain
+    const classAssignments = {
+        "cs.university.edu": ["Data Structures", "Algorithms", "AI"],
+        "ee.university.edu": ["Circuits", "Electronics", "Power Systems"],
+        "me.university.edu": ["Thermodynamics", "Fluid Mechanics", "Machine Design"],
+    };
 
-  
-    const newUser = { name, email, password, role, faceData, qrCode };
+    const assignedClasses = classAssignments[domain] || ["General Studies"]; // Default if no match
+
+    // ✅ Store user details with assigned classes
+    const newUser = { name, email, password, role, classes: assignedClasses };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
-    alert(`🎉 Registration successful as ${role.toUpperCase()}! You can now log in.`);
+    alert(`🎉 Registration successful! Assigned to: ${assignedClasses.join(", ")}`);
+
+    // ✅ Store assigned classes separately in localStorage
+    localStorage.setItem(`assignedClasses_${email}`, JSON.stringify(assignedClasses));
+
     window.location.href = "login.html";
 });
+
 
 
 async function captureFace() {

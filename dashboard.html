@@ -9,53 +9,45 @@
 </head>
 <body>
     <div class="dashboard-container">
-   
+        
         <aside class="sidebar">
             <h2>AttendEase</h2>
             <ul>
-                <li><a href="#">📊 Dashboard</a></li>
-                <li><a href="#">📅 Class Schedule</a></li>
-                <li><a href="#">🔔 Notifications</a></li>
-                <li><a href="login.html">🚪 Logout</a></li>
+                <li><a href="#"> Dashboard</a></li>
+                <li><a href="#"> Class Schedule</a></li>
+                <li><a href="#"> Notifications</a></li>
+                <li><a href="login.html"> Logout</a></li>
             </ul>
         </aside>
 
-        <!-- ✅ Main Content -->
+      
         <main class="main-content">
             <h1>Welcome, Student</h1>
 
-            <!-- Attendance Overview -->
+        
             <section class="attendance-section">
-                <h2>📊 Attendance Overview</h2>
-                <div class="attendance-stats">
-                    <div class="stat present">
-                        <h3>Present</h3>
-                        <p id="presentCount">0</p>
-                    </div>
-                    <div class="stat absent">
-                        <h3>Absent</h3>
-                        <p id="absentCount">0</p>
-                    </div>
+                <h2> Attendance Overview</h2>
+                <div id="attendanceContainer">
+                    
                 </div>
             </section>
 
-            <!-- Class Schedule -->
+            
             <section class="class-schedule">
-                <h2>📅 Class Schedule</h2>
+                <h2> Class Schedule</h2>
                 <ul id="scheduleList">
                     <li>No upcoming classes.</li>
                 </ul>
             </section>
 
-            <!-- Notifications -->
+           
             <section class="notifications">
-                <h2>🔔 Notifications</h2>
+                <h2> Notifications</h2>
                 <div id="notificationBox">No new notifications.</div>
             </section>
 
-            <!-- Attendance Marking -->
             <section class="attendance-marking">
-                <h2>✅ Mark Attendance</h2>
+                <h2> Mark Attendance</h2>
                 <button id="startFaceRecognition">Start Face Recognition</button>
                 <button id="scanQRCode">Scan QR Code</button>
             </section>
