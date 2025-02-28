@@ -20,10 +20,10 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
         return;
     }
 
-    // ✅ Extract domain from email
+   
     const domain = email.split("@")[1];
 
-    // ✅ Auto-assign classes based on domain
+    
     const classAssignments = {
         "cs.university.edu": ["Data Structures", "Algorithms", "AI"],
         "ee.university.edu": ["Circuits", "Electronics", "Power Systems"],
@@ -32,14 +32,14 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
 
     const assignedClasses = classAssignments[domain] || ["General Studies"]; // Default if no match
 
-    // ✅ Store user details with assigned classes
+    
     const newUser = { name, email, password, role, classes: assignedClasses };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
     alert(`🎉 Registration successful! Assigned to: ${assignedClasses.join(", ")}`);
 
-    // ✅ Store assigned classes separately in localStorage
+    
     localStorage.setItem(`assignedClasses_${email}`, JSON.stringify(assignedClasses));
 
     window.location.href = "login.html";
@@ -92,18 +92,5 @@ async function captureFace() {
 }
 
 
-function generateQRCode() {
-    const email = document.getElementById("email").value;
-    if (!email) {
-        alert("⚠️ Enter email first before generating QR code!");
-        return;
-    }
 
-    let qrCodeDiv = document.getElementById("qrcode");
-    qrCodeDiv.innerHTML = "";
-    new QRCode(qrCodeDiv, { text: email, width: 128, height: 128 });
-
-    localStorage.setItem("qrCode", email);
-    alert("✅ QR Code Generated & Stored!");
-}
 
