@@ -8,7 +8,7 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
     const role = document.getElementById("role").value;
 
     if (password !== confirmPassword) {
-        alert("❌ Passwords do not match!");
+        alert("Passwords do not match!");
         return;
     }
 
@@ -16,7 +16,7 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
     const emailExists = users.some(user => user.email === email);
 
     if (emailExists) {
-        alert("⚠️ This email is already registered. Please log in.");
+        alert("This email is already registered. Please log in.");
         return;
     }
 
@@ -60,7 +60,7 @@ async function captureFace() {
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
         video.srcObject = stream;
-        console.log("📸 Camera started!");
+        console.log("Camera started!");
     } catch (err) {
         alert("❌ Camera access denied. Please allow permissions.");
         return;
@@ -68,19 +68,19 @@ async function captureFace() {
 
     video.addEventListener("play", async function detectFace() {
         setTimeout(async () => {
-            console.log("🔍 Detecting face...");
+            console.log("Detecting face...");
             const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
                 .withFaceLandmarks()
                 .withFaceDescriptor();
 
             if (!detections) {
-                alert("⚠️ No face detected. Please try again.");
+                alert("No face detected. Please try again.");
                 return;
             }
 
            
             localStorage.setItem("faceData", JSON.stringify(detections.descriptor));
-            alert("✅ Face data captured successfully!");
+            alert("Face data captured successfully!");
 
             
             let tracks = video.srcObject.getTracks();

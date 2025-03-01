@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard - AttendEase</title>
-    <link rel="stylesheet" href="dashboard.css">
-    <script defer src="dashboard.js"></script>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script defer src="../js/dashboard.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
@@ -49,6 +49,8 @@
             <section class="attendance-marking">
                 <h2> Mark Attendance</h2>
                 <button id="startFaceRecognition">Start Face Recognition</button>
+                <button id="requestQRCode">Request QR Code</button>
+                <div id="qrCodeContainer" style="display: none;">
                 <button id="scanQRCode">Scan QR Code</button>
             </section>
         </main>
