@@ -117,3 +117,23 @@ button {
 button:hover {
     background: #0056b3;
 }
+
+#qrCodeContainer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    display: none; /* ✅ Initially hidden */
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    width: 200px;
+    margin: auto;
+}
+
+#qrcode img {
+    display: block !important; /* ✅ Ensure QR Code image is visible */
+    margin: auto;
+    width: 150px; /* ✅ Adjust size */
+    height: 150px;
+}

@@ -28,6 +28,7 @@ function approveRequest(index) {
     
     let qrCodeData = qrRequests[index].email + "_QR_" + Date.now();
     localStorage.setItem(`qrCode_${qrRequests[index].email}`, qrCodeData);
+    console.log("🚀 QR Code Approved & Stored:", qrCodeData); 
 
     alert("✅ QR Code Approved & Sent!");
     localStorage.setItem("qrRequests", JSON.stringify(qrRequests));
