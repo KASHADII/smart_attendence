@@ -1,4 +1,4 @@
-document.getElementById("registerForm").addEventListener("submit", function (e) {
+document.getElementById("registerForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const name = document.getElementById("name").value;
@@ -20,10 +20,8 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
         return;
     }
 
-   
     const domain = email.split("@")[1];
 
-    
     const classAssignments = {
         "cs.university.edu": ["Data Structures", "Algorithms", "AI"],
         "ee.university.edu": ["Circuits", "Electronics", "Power Systems"],
@@ -32,25 +30,24 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
 
     const assignedClasses = classAssignments[domain] || ["General Studies"]; // Default if no match
 
-    
     const newUser = { name, email, password, role, classes: assignedClasses };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
     alert(`🎉 Registration successful! Assigned to: ${assignedClasses.join(", ")}`);
 
-    
     localStorage.setItem(`assignedClasses_${email}`, JSON.stringify(assignedClasses));
+
+    // Call captureFace function to store face data
+    await captureFace(email);
 
     window.location.href = "login.html";
 });
 
-
-
-async function captureFace() {
+async function captureFace(email) {
     const video = document.getElementById("video");
-    const canvas = document.getElementById("canvas");
 
+    // ✅ Load models
     await Promise.all([
         faceapi.nets.tinyFaceDetector.loadFromUri("https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.2/model/"),
         faceapi.nets.faceLandmark68Net.loadFromUri("https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.2/model/"),
@@ -60,36 +57,39 @@ async function captureFace() {
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
         video.srcObject = stream;
-        console.log("Camera started!");
     } catch (err) {
-        alert("❌ Camera access denied. Please allow permissions.");
+        alert("⚠️ Camera access denied. Please allow camera permissions.");
         return;
     }
 
     video.addEventListener("play", async function detectFace() {
         setTimeout(async () => {
-            console.log("Detecting face...");
             const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
                 .withFaceLandmarks()
                 .withFaceDescriptor();
 
             if (!detections) {
-                alert("No face detected. Please try again.");
+                alert("⚠️ No face detected. Please try again.");
                 return;
             }
 
-           
-            localStorage.setItem("faceData", JSON.stringify(detections.descriptor));
-            alert("Face data captured successfully!");
+            // ✅ Store face descriptor in localStorage
+            localStorage.setItem(`faceData_${email}`, JSON.stringify(Array.from(detections.descriptor)));
+            alert("✅ Face data captured and stored!");
 
-            
+            // ✅ Stop Camera After Successful Capture
             let tracks = video.srcObject.getTracks();
-            tracks.forEach(track => track.stop()); 
+            tracks.forEach(track => track.stop());
             video.srcObject = null;
-            video.style.display = "none"; 
+            video.style.display = "none";
+
+            // ✅ Debug: Check if Face Data is Stored
+            console.log("🟢 Stored Face Data:", localStorage.getItem(`faceData_${email}`));
+
         }, 2000);
-    }, { once: true }); 
+    }, { once: true });
 }
+
 
 
 
