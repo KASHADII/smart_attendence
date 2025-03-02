@@ -1,6 +1,4 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-
 
 * {
     margin: 0;
@@ -10,25 +8,25 @@
 }
 
 body {
-    background-color: #f8f9fa;
-    color: #333;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
     text-align: center;
 }
 
-
+/* Navigation Bar */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
     padding: 15px 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 nav .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #007bff;
+    color: #ff758c;
 }
 
 nav ul {
@@ -45,53 +43,63 @@ nav ul li a {
     color: #333;
     font-size: 1rem;
     font-weight: 500;
+    transition: color 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
-    color: #007bff;
+    color: #ff758c;
 }
 
-
+/* Hero Section */
 .hero {
     height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #eef2f3;
-    padding: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 126, 179, 0.2), rgba(106, 17, 203, 0.2)), #ffffff; 
+    color: #333;
+    padding: 40px;
+    border-radius: 0 0 20px 20px;
 }
 
 .hero h1 {
     font-size: 3rem;
+    font-weight: 700;
     margin-bottom: 15px;
-    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 20px;
-    color: #555;
-    max-width: 600px;
     font-weight: 400;
+    opacity: 0.9;
+    max-width: 600px;
 }
 
-.hero button {
-    background: #007bff;
+.hero .btn {
+    background: linear-gradient(135deg, #6a11cb, #ff758c);
     color: white;
-    padding: 12px 20px;
-    font-size: 1rem;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.hero button:hover {
-    background: #0056b3;
+.hero .btn:hover {
+    background: linear-gradient(135deg, #4a0d9d, #d94a7d);
+    transform: scale(1.05);
 }
 
 
+/* Features Section */
 .features {
     padding: 50px;
     background: white;
@@ -103,11 +111,11 @@ nav ul li a:hover {
 }
 
 .feature-card {
-    background: #ffffff;
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -119,6 +127,7 @@ nav ul li a:hover {
     margin-bottom: 10px;
     font-size: 1.5rem;
     font-weight: 600;
+    color: #333;
 }
 
 .feature-card p {
@@ -127,10 +136,85 @@ nav ul li a:hover {
     font-weight: 400;
 }
 
+.features {
+    text-align: center;
+    padding: 50px;
+    background: white;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.feature {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+/* Why Choose AttendEase Section */
+.why-choose {
+    background: white;
+    padding: 50px;
+    margin: 50px auto;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.129);
+    text-align: center;
+}
+
+.why-choose h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.feature {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ff758c;
+    margin-bottom: 5px;
+}
+
+.feature p {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 400;
+}
+
+
+/* Footer */
 footer {
-    background: #007bff;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
     color: white;
     text-align: center;
     padding: 15px;
     font-size: 1rem;
+    font-weight: 500;
 }

@@ -1,21 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 html, body {
     height: auto;
-    overflow-y: auto; 
-    scroll-behavior: smooth; 
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
-
 body {
-    background-color: #f8f9fa;
-    color: #333;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -23,21 +23,19 @@ body {
     min-height: 100vh;
 }
 
-
 .container {
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     width: 380px;
-    margin-top:20px ;
+    margin-top: 20px;
+    color: #333;
 }
-
-
 
 h2 {
     font-size: 1.8rem;
-    color: #007bff; 
+    color: #ff758c;
     margin-bottom: 15px;
     text-align: center;
     font-weight: bold;
@@ -47,9 +45,11 @@ input, select {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     font-size: 1rem;
+    background: #f9f9f9;
+    color: #333;
 }
 
 select {
@@ -57,50 +57,52 @@ select {
     cursor: pointer;
 }
 
-
 button {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     margin: 10px 0;
-    background: #007bff;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
     font-size: 1rem;
-    transition: 0.3s;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
-    background: #0056b3;
+    background: linear-gradient(135deg, #e06494, #d94a7d);
+    transform: scale(1.05);
 }
-
 
 #qrcode {
     margin-top: 10px;
 }
 
-
 video {
     margin-top: 10px;
     border-radius: 8px;
-    border: 2px solid #007bff;
+    border: 2px solid #ff758c;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-
 p {
     margin-top: 15px;
     font-size: 0.9rem;
+    color: #333;
 }
 
 p a {
-    color: #007bff;
+    color: #ff758c;
     text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 p a:hover {
     text-decoration: underline;
+    color: #d94a7d;
 }
