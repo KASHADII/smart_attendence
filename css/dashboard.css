@@ -18,6 +18,7 @@ body {
     background-color: #1e1e2f;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
 }
 
 .sidebar h2 {
@@ -103,9 +104,127 @@ button:hover {
     margin: 10px auto;
     border: 2px solid #00adb5;
     border-radius: 5px;
+    max-width: 100%;
 }
 
 canvas {
     display: none;
 }
+
+/* RESPONSIVENESS */
+
+/* For Tablets and Small Laptops */
+@media (max-width: 1024px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        display: inline;
+        margin: 10px 5px;
+    }
+
+    .sidebar ul li a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+}
+
+/* For Mobile Devices */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        display: inline;
+        margin: 10px 5px;
+    }
+
+    .sidebar ul li a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .attendance-section,
+    .class-schedule,
+    .notifications,
+    .attendance-marking {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    button {
+        width: 100%;
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    #video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* For Very Small Screens */
+@media (max-width: 480px) {
+    .sidebar h2 {
+        font-size: 18px;
+    }
+
+    .sidebar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar ul li {
+        margin: 8px 0;
+    }
+
+    .sidebar ul li a {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .main-content h1 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
 
