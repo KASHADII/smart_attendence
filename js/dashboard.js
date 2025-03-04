@@ -135,32 +135,31 @@ async function startFaceRecognition() {
                 return;
             }
 
-            // ✅ Convert stored data back to Float32Array
+            
             storedFaceData = new Float32Array(JSON.parse(storedFaceData));
 
-            // ✅ Compare Faces
+          
             const faceMatcher = new faceapi.FaceMatcher(
                 new faceapi.LabeledFaceDescriptors("User", [storedFaceData])
             );
             const bestMatch = faceMatcher.findBestMatch(detections.descriptor);
 
             console.log("🔍 Face match result:", bestMatch);
+            console.log("Stored Face Data:", storedFaceData);
+            console.log("Detected Face Descriptor:", detections.descriptor);
 
-            if (bestMatch.distance < 0.6) { // ✅ 0.6 is a good threshold
+
+            if (bestMatch.distance < 0.6) { 
                 alert("✅ Face Verified! Attendance Marked.");
+                console.log("Attendance marked for:", loggedInUser.email);
 
-                // ✅ Mark Attendance in LocalStorage
-                let attendanceRecords = JSON.parse(localStorage.getItem("attendanceRecords")) || {};
-                if (!attendanceRecords[loggedInUser.email]) attendanceRecords[loggedInUser.email] = [];
-                
-                attendanceRecords[loggedInUser.email].push({ date: new Date().toLocaleString(), status: "Present" });
+
                 localStorage.setItem("attendanceRecords", JSON.stringify(attendanceRecords));
 
             } else {
                 alert("❌ Face Not Recognized! Use QR Code as Backup.");
             }
 
-            // ✅ Stop Camera After Verification
             let tracks = video.srcObject.getTracks();
             tracks.forEach(track => track.stop());
             video.srcObject = null;
